@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+
+  db:
+    image: mysql:5.7
+    container_name: 'db'
+    restart: always
+    ports:
+      - 3308:3306
+    expose:
+      - 3308
+    volumes:
+      - ./scripts:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_USER: admin
+      MYSQL_ROOT_PASSWORD: chacal3012
+      MYSQL_PASSWORD: chacal3012
+      MYSQL_DATABASE: sales

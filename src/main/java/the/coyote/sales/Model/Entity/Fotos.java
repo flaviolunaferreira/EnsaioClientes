@@ -1,26 +1,23 @@
 package the.coyote.sales.Model.Entity;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@MappedSuperclass
-abstract class Usuarios {
-	
+public class Fotos {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long idFotos;
 	
 	@NotNull
-	private String nome;
-	
-	@NotNull
-	private String email;
+	private String url;
 	
 }

@@ -14,7 +14,7 @@ public class Fones {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Long idFone;
+	private int idFone;
 	
 	private String tipo;	
 	private String fone;

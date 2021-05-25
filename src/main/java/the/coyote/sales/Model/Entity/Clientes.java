@@ -4,23 +4,37 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+
+import lombok.Data;
 
 
 @Entity
-@MappedSuperclass
-public class Clientes extends Usuarios{
+@Data
+public class Clientes{
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private int idCliente;
+	
+	@NotNull
+	private String nome;
+	
+	@NotNull
+	@Email
+	private String email;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = {
 			CascadeType.MERGE, CascadeType.REMOVE, CascadeType.PERSIST
 	})
-	@JoinColumn(name = "idEndereco")
+	@JoinColumn(name = "idCliente")
 	private List<Enderecos> enderecos;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = {
 			CascadeType.MERGE, CascadeType.REMOVE, CascadeType.PERSIST
 	})
-	@JoinColumn(name = "idFone")
+	@JoinColumn(name = "idCliente")
 	private List<Fones> fone;
 	
 	@NotNull

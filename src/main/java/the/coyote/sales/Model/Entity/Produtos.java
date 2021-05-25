@@ -19,7 +19,7 @@ public class Produtos {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long idProduto;
+	private int idProduto;
 	
 	@NotNull
 	@NotBlank
@@ -33,8 +33,7 @@ public class Produtos {
 	@OneToMany(fetch = FetchType.LAZY, cascade = {
 			CascadeType.MERGE, CascadeType.REMOVE, CascadeType.PERSIST
 	})
-	@JoinColumn(name = "idFotos")
+	@JoinColumn(name = "idProduto")
 	private List<Fotos> fotos;
-	
 	
 }

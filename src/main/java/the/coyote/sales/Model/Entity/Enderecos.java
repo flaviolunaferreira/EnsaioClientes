@@ -14,7 +14,7 @@ public class Enderecos {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Long idEndereco;
+	private int idEndereco;
 	
 	private String rua;
 	private String numero;

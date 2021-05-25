@@ -15,8 +15,8 @@ public class Fotos {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long idFotos;
-	
+	private int idFotos;
+		
 	@NotNull
 	private String url;
 	

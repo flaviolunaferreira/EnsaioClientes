@@ -2,27 +2,39 @@ package the.coyote.sales.Model.Entity;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+
+import lombok.Data;
 
 
 @Entity
-public class Colaboradores extends Usuarios{
+@Data
+public class Colaboradores {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private int idColaborador;
+	
+	@NotNull
+	private String nome;
+	
+	@NotNull
+	@Email
+	private String email;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = {
 			CascadeType.MERGE, CascadeType.REMOVE, CascadeType.PERSIST
 	})
-	@JoinColumn(name = "idEndereco")
+	@JoinColumn(name = "idUsuario")
 	private List<Enderecos> enderecos;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = {
 			CascadeType.MERGE, CascadeType.REMOVE, CascadeType.PERSIST
 	})
-	@JoinColumn(name = "idFone")
+	@JoinColumn(name = "idUsuario")
 	private List<Fones> fone;
 	
 	@NotNull

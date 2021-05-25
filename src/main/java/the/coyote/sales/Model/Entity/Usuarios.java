@@ -15,7 +15,7 @@ abstract class Usuarios {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Long id;
+	private Long idUsuario;
 	
 	@NotNull
 	private String nome;

@@ -16,13 +16,13 @@ public class Colaboradores extends Usuarios{
 	@OneToMany(fetch = FetchType.LAZY, cascade = {
 			CascadeType.MERGE, CascadeType.REMOVE, CascadeType.PERSIST
 	})
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "idEndereco")
 	private List<Enderecos> enderecos;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = {
 			CascadeType.MERGE, CascadeType.REMOVE, CascadeType.PERSIST
 	})
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "idFone")
 	private List<Fones> fone;
 	
 	@NotNull

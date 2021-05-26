@@ -7,5 +7,7 @@ import the.coyote.sales.Model.Entity.Clientes;
 
 @Repository
 public interface ClientesRepository extends PagingAndSortingRepository<Clientes, Integer> {
-
+	
+	Iterable<Clientes> findByNomeContainingIgnoreCase(String texto);
+	
 }
